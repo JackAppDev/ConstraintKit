@@ -3,30 +3,31 @@ Makes swift constraints simple
 
 ##Usage
 
-Functions
 ```swift
-//Adds constraint to view
-func constrain( 
-  _ type: NSLayoutAttribute,
-  to: UIView?=nil,
-  _ typeTwo: NSLayoutAttribute?=nil,
-  atConstant constant: CGFloat?=nil,
-  atMultiplier multiplier: CGFloat?=nil) {
-    ...
-}
+//Main function
+func constrain() -> NSLayoutConstraint
+//Can return NSLayoutConstraint, doesn't have to
 ```
-```swift
-//Adds constraint to view and returns for later use
-func constraint( 
-  _ type: NSLayoutAttribute,
-  to: UIView?=nil,
-  _ typeTwo: NSLayoutAttribute?=nil,
-  atConstant constant: CGFloat?=nil,
-  atMultiplier multiplier: CGFloat?=nil) {
-    ...
-    return constraint
-}
-```
+***
+
+###Parameters
+* **type**: NSLayoutAttribute
+  * Attribute for self 
+  * *Required*
+* **typeTwo**: NSLayoutAttribute
+  * Attribute for superview or ***to*** 
+  * Default: ***type***
+* **to**: UIView
+  * The view in relation 
+  * Default: ***superview***
+* **atConstant**: CGFloat
+  * Constant for constraint
+  * Default: ***0***
+* **atMultiplier**: CGFloat
+  * Multiplier for constraint
+  * Default: ***1***
+
+***
 
 ###Sample usage
 ```swift
@@ -66,4 +67,4 @@ green.constrain(.width)
 green.constrain(.left, to: red, .right)
 green.constrain(.bottom)
 ```
-
+***
